@@ -1,0 +1,23 @@
+{
+  "name": "trabajo-grupal-node",
+  "version": "1.0.0",
+  "description": "Ya casi termina el curso 😱. Por eso, acá te tiramos algo bien complicado para que reniegues.",
+  "main": "handler.js",
+  "dependencies": {
+    "ebased": "^1.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CesarDavidAguirre/trabajo-grupal-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CesarDavidAguirre/trabajo-grupal-node/issues"
+  },
+  "homepage": "https://github.com/CesarDavidAguirre/trabajo-grupal-node#readme"
+}
