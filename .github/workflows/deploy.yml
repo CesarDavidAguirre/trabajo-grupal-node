@@ -45,7 +45,7 @@ jobs:
         # Literal body:
         body: Build job of ${{github.repository}} completed successfully!
         # Read file contents as body:
-        body: file://tmp
+        # body: file://tmp
         to: ${{secrets.MAIL_USERNAME}}
         from: cesaraguirre566@gmail.com # <user@example.com>
         # Optional content type (defaults to text/plain):
