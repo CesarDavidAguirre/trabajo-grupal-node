@@ -47,9 +47,9 @@ jobs:
         password: ${{secrets.MAIL_PASSWORD}}
         subject: Github Actions job result
         # Literal body:
-        body: ${{join(steps.sls_output.outputs.*, '\n')}}
+        # body: ${{join(steps.sls_output.outputs.*, '\n')}}
         # Read file contents as body:
-        # body: file://tmp
+        body: "hola como estas"
         to: ${{secrets.MAIL_USERNAME}}
         from: cesaraguirre566@gmail.com # <user@example.com>
         # Optional content type (defaults to text/plain):
