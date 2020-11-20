@@ -29,9 +29,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - name: serverless info
-      uses: serverless/github-action@master
-      with:
-        args: info
+      run: echo "::set-output name=sls-info::$(sls info)\n"
       id: sls_output
       env:
         SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
