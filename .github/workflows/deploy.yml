@@ -38,20 +38,20 @@ jobs:
         # or if using AWS credentials directly
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    - name: Send mail
-      uses: dawidd6/action-send-mail@v2
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        subject: Github Actions job result
+    # - name: Send mail
+    #   uses: dawidd6/action-send-mail@v2
+    #   with:
+    #     server_address: smtp.gmail.com
+    #     server_port: 465
+    #     username: ${{secrets.MAIL_USERNAME}}
+    #     password: ${{secrets.MAIL_PASSWORD}}
+    #     subject: Github Actions job result
         # Literal body:
         # body: ${{join(steps.sls_output.outputs.*, '\n')}}
         # Read file contents as body:
-        body: ${{ steps.sls_output.outputs }}
-        to: cesaraguirre566@gmail.com
-        from: ${{secrets.MAIL_USERNAME}} # <user@example.com>
+        # body: ${{ steps.sls_output.outputs }}
+        # to: cesaraguirre566@gmail.com
+        # from: ${{secrets.MAIL_USERNAME}} # <user@example.com>
         # Optional content type (defaults to text/plain):
         # content_type: text/html
         # Optional attachments:
