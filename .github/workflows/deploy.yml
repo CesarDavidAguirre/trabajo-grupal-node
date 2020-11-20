@@ -29,8 +29,14 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - name: serverless info
-      run: echo "::set-output name=sls-info::$(sls info)\n"
+      uses: serverless/github-action@master
+      with:
+        args: info
       id: sls_output
+      outputs:
+        result:
+          description: "result sls info"
+
       env:
         SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
         # or if using AWS credentials directly
@@ -47,7 +53,7 @@ jobs:
         # Literal body:
         # body: ${{join(steps.sls_output.outputs.*, '\n')}}
         # Read file contents as body:
-        body: ${{join(steps.sls_output.*, '\n')}}
+        body: ${{join(steps.sls_output.outputs, '\n')}}
         to: cesaraguirre566@gmail.com
         from: ${{secrets.MAIL_USERNAME}} # <user@example.com>
         # Optional content type (defaults to text/plain):
