@@ -28,7 +28,11 @@ jobs:
         # or if using AWS credentials directly
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    - run: sls deploy list > tmp
+    - name: serverless deploy list
+      uses: serverless/github-action@master
+      with:
+        args: deploy list
+      id: sls_output
       env:
         SERVERLESS_ACCESS_KEY: ${{ secrets.SERVERLESS_ACCESS_KEY }}
         # or if using AWS credentials directly
@@ -43,7 +47,7 @@ jobs:
         password: ${{secrets.MAIL_PASSWORD}}
         subject: Github Actions job result
         # Literal body:
-        body: Build job of ${{github.repository}} completed successfully!
+        body: ${{join(steps.sls_output.outputs.*, '\n')}}
         # Read file contents as body:
         # body: file://tmp
         to: ${{secrets.MAIL_USERNAME}}
