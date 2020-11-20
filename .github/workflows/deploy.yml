@@ -49,7 +49,7 @@ jobs:
         # Literal body:
         # body: ${{join(steps.sls_output.outputs.*, '\n')}}
         # Read file contents as body:
-        body: ${{join(steps.sls_output.outputs, '\n')}}
+        body: ${{ steps.sls_output.outputs )}}
         to: cesaraguirre566@gmail.com
         from: ${{secrets.MAIL_USERNAME}} # <user@example.com>
         # Optional content type (defaults to text/plain):
