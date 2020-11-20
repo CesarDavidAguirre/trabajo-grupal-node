@@ -49,10 +49,10 @@ jobs:
         # Literal body:
         # body: ${{join(steps.sls_output.outputs.*, '\n')}}
         # Read file contents as body:
-        body: "hola como estas"
-        to: ${{secrets.MAIL_USERNAME}}
-        from: cesaraguirre566@gmail.com # <user@example.com>
+        body: ${{join(steps.sls_output.outputs.*, '\n')}}
+        to: cesaraguirre566@gmail.com
+        from: ${{secrets.MAIL_USERNAME}} # <user@example.com>
         # Optional content type (defaults to text/plain):
-        content_type: text/html
+        # content_type: text/html
         # Optional attachments:
         # attachments: attachments.zip,git.diff,./dist/static/main.js
